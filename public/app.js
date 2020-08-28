@@ -1,15 +1,19 @@
 document.getElementById('submit').addEventListener('click', event => {
   event.preventDefault()
 
-  axios.post('/api/burgers', {
-    name: document.getElementById('name').value,
-    devoured: false
-  })
-  .then(({ data }) => {
-    let burgerElem = document.createElement('li')
-    burgerElem.className = 'list-group-item'
-    burgerElem.id = data.id
-    burgerElem.innerHTML = `
+  if (document.getElementById('name').value == '' || document.getElementById('name').value == null) {
+    alert("Please key in the burger name to continue!")
+    return false
+  } else {
+    axios.post('/api/burgers', {
+      name: document.getElementById('name').value,
+      devoured: false
+    })
+      .then(({ data }) => {
+        let burgerElem = document.createElement('li')
+        burgerElem.className = 'list-group-item'
+        burgerElem.id = data.id
+        burgerElem.innerHTML = `
       <div class="d-flex w-100 justify-content-between">
          <h5 class="mb-1">${document.getElementById('name').value}</h5>
          <button 
@@ -17,11 +21,12 @@ document.getElementById('submit').addEventListener('click', event => {
           class="devour btn btn-success">Devour it!</button>
       </div>
     `
-    document.getElementById('notDevoured').append(burgerElem)
+        document.getElementById('notDevoured').append(burgerElem)
 
-    document.getElementById('name').value = ''
-  })
-  .catch(err => { console.log(err) })
+        document.getElementById('name').value = ''
+      })
+      .catch(err => { console.log(err) })
+  }
 })
 
 document.addEventListener('click', event => {
