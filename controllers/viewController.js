@@ -3,7 +3,7 @@ const burger = require('../models/burger.js')
 
 router.get('/', (req, res) => {
   burger.getAll(burgers => {
-    res.render('index', { burgers})
+    res.render('index', { burgers })
   })
 })
 

@@ -22,4 +22,10 @@ router.put('/burgers/:id', (req, res) => {
   })
 })
 
+router.delete('/burgers/:id', (req, res) => {
+  burger.deleteOne({id: req.params.id}, () => {
+    res.sendStatus(200)
+  })
+})
+
 module.exports = router

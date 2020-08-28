@@ -23,5 +23,12 @@ orm.updateOne = (table, updates, where, cb) => {
   })
 }
 
+orm.deleteOne = (table, where, cb) => {
+  db.query(`DELETE FROM ${table} WHERE ?`, where, err => {
+    if (err) { console.log(err) }
+    cb()
+  })
+}
+
 
 module.exports = orm
