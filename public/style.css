@@ -1,0 +1,23 @@
+body {
+  width: 1200px;
+  height: 1200px;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  z-index: 0;
+}
+
+body::after {
+  background-image: url('https://www.in-n-out.com/Frontend-Assembly/Telerik.Sitefinity.Frontend/content/images/homepage/double-double.png?package=INNOUT');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  content: "";
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}

@@ -1,19 +1,19 @@
 <h1>E DA BURGER</h1>
-
+<hr>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <form class="form-inline">
         <div class="form-group mx-sm-3 mb-2">
-          <label class="sr-only">Burger Name</label>
-          <input type="text" class="form-control" id="name">
+          <label for="name" class="sr-only">Burger Name</label>
+          <input type="text" class="form-control" id="name" name="name">
         </div>
         <button type="submit" class="btn btn-primary mb-2" id="submit">Make it!</button>
       </form>
     </div>
   </div>
   <hr>
-  <div class="row">
+  <div class="row" id="mainContent">
     <div class="col-md-6">
       <ul id="notDevoured" class="list-group">
         <h2>Not Devoured!</h2>
@@ -32,7 +32,7 @@
     </div>
     <div class="col-md-6">
       <ul id="devoured" class="list-group">
-        <h2>Devoured</h2>
+        <h2>Devoured!</h2>
         {{#each burgers}}
         {{#if this.devoured}}
         <li id="{{ this.id }}" class="list-group-item">
